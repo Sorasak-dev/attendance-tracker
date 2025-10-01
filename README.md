@@ -20,7 +20,7 @@ Select time period
 
 For Administrators:
 Select "Administrator"
-Login: admin@gmail.com pass: 123456
+Login: admin@gmail.com password: 123456
 View reports, export CSV
 
 
