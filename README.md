@@ -1,4 +1,4 @@
-# attendance-tracker
+# attendance-tracker Demo
 A web-based attendance tracking system with facial recognition and GPS verification.
 
 Setup
