@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลงเวลาเข้า-ออกงาน</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ลงเวลาเข้า-ออกงาน</h1>
+            <p id="currentDateTime"></p>
+        </div>
+
+        <div id="alertBox"></div>
+
+        <div class="card">
+            <h3>ข้อมูลพนักงาน</h3>
+            <div class="form-group">
+                <label for="employeeId">รหัสพนักงาน</label>
+                <input type="text" id="employeeId" placeholder="กรอกรหัสพนักงาน" required>
+            </div>
+            <div class="form-group">
+                <label for="employeeName">ชื่อ-นามสกุล</label>
+                <input type="text" id="employeeName" placeholder="กรอกชื่อ-นามสกุล" required>
+            </div>
+        </div>
+
+        <div class="card location-card" id="locationCard">
+            <div id="locationStatus">กำลังตรวจสอบตำแหน่ง...</div>
+        </div>
+
+        <div class="card camera-card">
+            <h3>ถ่ายภาพใบหน้า</h3>
+            <div class="video-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+            </div>
+            <button class="btn btn-camera" id="startCameraBtn">
+                เปิดกล้อง
+            </button>
+            <button class="btn btn-capture hidden" id="captureBtn">
+                ถ่ายภาพ
+            </button>
+            <div class="snapshot-container hidden" id="snapshotContainer">
+                <img id="snapshot" alt="ภาพที่ถ่าย">
+                <button class="btn btn-secondary" id="retakeBtn">
+                ถ่ายใหม่
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>เลือกประเภทการลงเวลา</h3>
+            <div class="time-buttons">
+                <button class="btn btn-success" onclick="recordTime('clock-in-morning')">
+                    เช้า
+                </button>
+                <button class="btn btn-warning" onclick="recordTime('lunch-break')">
+                    กลางวัน
+                </button>
+                <button class="btn btn-info" onclick="recordTime('back-from-lunch')">
+                    บ่าย
+                </button>
+                <button class="btn btn-danger" onclick="recordTime('clock-out-evening')">
+                    เย็น
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>บันทึกเวลาวันนี้ของคุณ</h3>
+            <div id="todayRecords">
+                <p class="no-data">ยังไม่มีข้อมูลการลงเวลาวันนี้</p>
+            </div>
+        </div>
+
+        <div class="footer-buttons">
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                ← กลับหน้าหลัก
+            </button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/facial.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

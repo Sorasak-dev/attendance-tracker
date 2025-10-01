@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Attendance Tracker</h1>
+            <p>ระบบบันทึกเวลาเข้า-ออกงาน</p>
+        </div>
+
+        <div class="role-selection">
+            <div class="role-card" onclick="window.location.href='user.html'">
+                <h2>พนักงาน</h2>
+                <p>ลงเวลาเข้า-ออกงาน</p>
+                <button class="btn btn-primary">เข้าสู่ระบบพนักงาน</button>
+            </div>
+
+            <div class="role-card" onclick="window.location.href='admin.html'">
+                <h2>ผู้ดูแลระบบ</h2>
+                <p>ดูรายงานและจัดการข้อมูล</p>
+                <button class="btn btn-secondary">เข้าสู่ระบบ Admin</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

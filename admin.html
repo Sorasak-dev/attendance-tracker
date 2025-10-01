@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานการลงเวลา - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container admin-container">
+        <div class="header">
+            <h1> รายงานการลงเวลา</h1>
+            <p>ข้อมูลการเข้า-ออกงานทั้งหมด</p>
+        </div>
+
+        <div class="card">
+            <h3>กรองข้อมูล</h3>
+            <div class="filter-group">
+                <div class="form-group">
+                    <label for="filterEmployee">รหัสพนักงาน</label>
+                    <input type="text" id="filterEmployee" placeholder="ค้นหารหัสพนักงาน">
+                </div>
+                <div class="form-group">
+                    <label for="filterDate">วันที่</label>
+                    <input type="date" id="filterDate">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" onclick="filterRecords()">
+                         ค้นหา
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetFilter()">
+                         รีเซ็ต
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>สถิติ</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalRecords">0</div>
+                    <div class="stat-label">จำนวนบันทึกทั้งหมด</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalEmployees">0</div>
+                    <div class="stat-label">จำนวนพนักงาน</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="todayRecords">0</div>
+                    <div class="stat-label">บันทึกวันนี้</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="table-header">
+                <h3>รายการบันทึกเวลา</h3>
+                <div class="table-actions">
+                    <button class="btn btn-success btn-sm" onclick="exportToCSV()">
+                         Export CSV
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="clearAllData()">
+                         ลบข้อมูลทั้งหมด
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="records-table" id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>รหัสพนักงาน</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>วันที่</th>
+                            <th>เวลา</th>
+                            <th>ประเภท</th>
+                            <th>ตำแหน่ง</th>
+                            <th>ภาพ</th>
+                            <th>จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                        <tr>
+                            <td colspan="8" class="no-data">ไม่มีข้อมูล</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer-buttons">
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                ← กลับหน้าหลัก
+            </button>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="ภาพถ่าย">
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
